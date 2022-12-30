@@ -4,13 +4,14 @@ import jakarta.persistence.*;
 
 import java.util.Date;
 
+@NamedQuery(name = "getAllCount", query = "select count(*) from Player")
 @Entity
 @Table(name = "rpg.player")
 public class Player {
 
     @Id
     @Column
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     @Column(nullable = false, length = 12)
     private String name;
